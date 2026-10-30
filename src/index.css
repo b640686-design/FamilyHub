@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =========================
+   FAMILYHUB THEMES
+========================= */
+
+:root,
+:root[data-theme="dark"] {
+  font-family: 'Inter', sans-serif;
+
+  --bg-color: #09080e;
+  --card-bg: #14121e;
+  --text-color: #ffffff;
+  --muted-color: #9691a8;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --accent-color: #a78bfa;
+  --accent-bg: rgba(167, 139, 250, 0.13);
+
+  color: var(--text-color);
+  background: var(--bg-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+:root[data-theme="light"] {
+  --bg-color: #f4f3fa;
+  --card-bg: #ffffff;
+  --text-color: #211d30;
+  --muted-color: #777286;
+  --border-color: rgba(30, 20, 60, 0.12);
+  --accent-color: #7c3aed;
+  --accent-bg: rgba(124, 58, 237, 0.10);
+}
+
+:root[data-theme="premium"] {
+  --bg-color: #10091c;
+  --card-bg: #1c112d;
+  --text-color: #fff7ff;
+  --muted-color: #b5a1c9;
+  --border-color: rgba(192, 132, 252, 0.18);
+  --accent-color: #d8a4ff;
+  --accent-bg: rgba(216, 164, 255, 0.13);
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.25s, color 0.25s;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.25s, color 0.25s;
+}
