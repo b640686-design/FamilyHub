@@ -310,3 +310,55 @@
   color: #ffaaaa;
   background: rgba(248, 113, 113, 0.12);
 }
+
+/* MOBILE SIDEBAR FIX */
+
+@media (max-width: 900px) {
+  .mobile-sidebar {
+    width: min(300px, 85vw);
+    height: 100dvh;
+    max-height: 100dvh;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-sidebar .sidebar-top {
+    flex-shrink: 0;
+    margin-bottom: 12px;
+  }
+
+  .mobile-sidebar .sidebar-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+
+  .mobile-sidebar .sidebar-nav {
+    flex: none;
+    padding-bottom: 12px;
+  }
+
+  .mobile-sidebar .sidebar-bottom {
+    flex-shrink: 0;
+    padding-top: 10px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    background: var(--card-bg);
+  }
+
+  .mobile-sidebar .sidebar-profile {
+    margin-bottom: 2px;
+  }
+
+  .mobile-sidebar .sidebar-item {
+    min-height: 43px;
+  }
+
+  .mobile-sidebar .sidebar-label {
+    margin-bottom: 7px;
+  }
+}

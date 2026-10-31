@@ -102,29 +102,30 @@ function Sidebar({ active, setActive, onLogout }) {
           </button>
         </div>
 
-        {!collapsed && (
-          <p className="sidebar-label">{t('mainMenu')}</p>
-        )}
+        <div className="sidebar-scroll">
+          {!collapsed && (
+            <p className="sidebar-label">{t('mainMenu')}</p>
+          )}
 
-        <nav className="sidebar-nav">
-          {menu.map((item) => {
-            const Icon = item.icon
+          <nav className="sidebar-nav">
+            {menu.map((item) => {
+              const Icon = item.icon
 
-            return (
-              <button
-                key={item.name}
-                title={collapsed ? t(item.key) : ''}
-                onClick={() => navigate(item.name)}
-                className={`sidebar-item ${
-                  active === item.name ? 'active' : ''
-                }`}
-              >
-                <Icon size={20} />
-                {!collapsed && <span>{t(item.key)}</span>}
-              </button>
-            )
-          })}
-        </nav>
+              return (
+                <button
+                  key={item.name}
+                  title={collapsed ? t(item.key) : ''}
+                  onClick={() => navigate(item.name)}
+                  className={`sidebar-item ${active === item.name ? 'active' : ''
+                    }`}
+                >
+                  <Icon size={20} />
+                  {!collapsed && <span>{t(item.key)}</span>}
+                </button>
+              )
+            })}
+          </nav>
+        </div>
 
         <div className="sidebar-bottom">
           {!collapsed && (
@@ -133,25 +134,15 @@ function Sidebar({ active, setActive, onLogout }) {
 
           {renderProfile()}
 
-          {bottomMenu
-            .filter((item) => item.name !== 'Profile')
-            .map((item) => {
-              const Icon = item.icon
-
-              return (
-                <button
-                  key={item.name}
-                  title={collapsed ? t(item.key) : ''}
-                  onClick={() => navigate(item.name)}
-                  className={`sidebar-item ${
-                    active === item.name ? 'active' : ''
-                  }`}
-                >
-                  <Icon size={20} />
-                  {!collapsed && <span>{t(item.key)}</span>}
-                </button>
-              )
-            })}
+          <button
+            title={collapsed ? t('settings') : ''}
+            onClick={() => navigate('Settings')}
+            className={`sidebar-item ${active === 'Settings' ? 'active' : ''
+              }`}
+          >
+            <Settings size={20} />
+            {!collapsed && <span>{t('settings')}</span>}
+          </button>
 
           <button
             onClick={onLogout}
@@ -169,9 +160,8 @@ function Sidebar({ active, setActive, onLogout }) {
   return (
     <>
       <aside
-        className={`sidebar desktop-sidebar ${
-          collapsed ? 'collapsed' : ''
-        }`}
+        className={`sidebar desktop-sidebar ${collapsed ? 'collapsed' : ''
+          }`}
       >
         {renderMenu()}
       </aside>

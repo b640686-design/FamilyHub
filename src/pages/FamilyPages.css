@@ -860,3 +860,135 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================================
+   FAMILY MAP — LOCATION STATUS
+======================================== */
+
+.family-map-page .family-map-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 22px;
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.family-map-controls h3,
+.family-map-members h3 {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.family-map-controls p {
+  color: var(--muted-color);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+.family-map-actions {
+  align-items: center;
+}
+
+.family-map-actions button {
+  min-width: 105px;
+}
+
+.family-map-error {
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 107, 117, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 107, 117, 0.08);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.family-map-members {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.family-map-member {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 13px;
+  transition: 0.2s ease;
+}
+
+.family-map-member.selected {
+  border-color: var(--accent-color);
+  background: var(--accent-bg);
+}
+
+.family-map-member-info {
+  min-width: 0;
+}
+
+.family-map-member-info strong {
+  color: var(--text-color);
+  font-size: 13px;
+}
+
+.family-map-member-info p,
+.family-map-member-info small {
+  display: block;
+  color: var(--muted-color);
+  font-size: 11px;
+  margin: 4px 0 0;
+}
+
+.family-map-empty {
+  padding: 25px 10px;
+  text-align: center;
+  color: var(--muted-color);
+}
+
+.family-map-empty span {
+  font-size: 30px;
+}
+
+.family-map-empty p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.map-marker-avatar {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.map-marker-letter {
+  font-size: 17px;
+}
+
+@media (max-width: 600px) {
+  .family-map-page .family-map-controls {
+    align-items: stretch;
+    padding: 17px;
+  }
+
+  .family-map-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .family-map-actions button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .family-map-card {
+    height: 400px;
+  }
+
+  .family-map-container {
+    min-height: 400px;
+  }
+}
