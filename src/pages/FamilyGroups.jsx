@@ -52,9 +52,8 @@ function AvatarPicker({ value, onChange }) {
           <button
             key={id}
             type="button"
-            className={`family-avatar-option ${
-              value === id ? 'selected' : ''
-            }`}
+            className={`family-avatar-option ${value === id ? 'selected' : ''
+              }`}
             onClick={() => onChange(id)}
             aria-label={label}
             title={label}
@@ -76,9 +75,9 @@ function AvatarPicker({ value, onChange }) {
 function FamilyGroups() {
   const [group, setGroup] = useState(null)
 
-const [editingName, setEditingName] = useState(false)
-const [newGroupName, setNewGroupName] = useState('')
-const [savingName, setSavingName] = useState(false)
+  const [editingName, setEditingName] = useState(false)
+  const [newGroupName, setNewGroupName] = useState('')
+  const [savingName, setSavingName] = useState(false)
 
   const [members, setMembers] = useState([])
 
@@ -267,30 +266,30 @@ const [savingName, setSavingName] = useState(false)
   }
 
   async function renameGroup() {
-  if (!newGroupName.trim()) return
+    if (!newGroupName.trim()) return
 
-  setSavingName(true)
+    setSavingName(true)
 
-  const { error } = await supabase.rpc('rename_family_group', {
-    _group_id: group.id,
-    _new_name: newGroupName.trim(),
-  })
+    const { error } = await supabase.rpc('rename_family_group', {
+      _group_id: group.id,
+      _new_name: newGroupName.trim(),
+    })
 
-  if (error) {
-    setError(error.message)
-  } else {
-    setGroup((prev) => ({
-      ...prev,
-      name: newGroupName.trim(),
-    }))
+    if (error) {
+      setError(error.message)
+    } else {
+      setGroup((prev) => ({
+        ...prev,
+        name: newGroupName.trim(),
+      }))
 
-    setEditingName(false)
-    setNewGroupName('')
-    setSuccess('Название группы успешно изменено!')
+      setEditingName(false)
+      setNewGroupName('')
+      setSuccess('Название группы успешно изменено!')
+    }
+
+    setSavingName(false)
   }
-
-  setSavingName(false)
-}
 
   async function savePassword(e) {
     e.preventDefault()
@@ -333,9 +332,8 @@ const [savingName, setSavingName] = useState(false)
       if (error) throw error
 
       setInviteLink(
-        `${window.location.origin}/?invite=${encodeURIComponent(data)}`
+        `https://familyhub-liard-gamma.vercel.app/?invite=${encodeURIComponent(data)}`
       )
-
       setSuccess('Приглашение создано! Оно действует 7 дней.')
     } catch (err) {
       setError(err.message || 'Не удалось создать приглашение.')
@@ -555,39 +553,39 @@ const [savingName, setSavingName] = useState(false)
             </div>
           </section>
 
-          
-{group.role === 'admin' && (
-  <section className="family-avatar-settings">
-    <button
-      type="button"
-      className="family-avatar-toggle"
-      onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
-    >
-      <Image size={18} />
-      Изменить аватарку
-      <span>{avatarMenuOpen ? '▲' : '▼'}</span>
-    </button>
 
-    {avatarMenuOpen && (
-      <AvatarPicker
-        value={selectedAvatar}
-        onChange={(id) => {
-          changeAvatar(id)
-          setAvatarMenuOpen(false)
-        }}
-      />
-    )}
+          {group.role === 'admin' && (
+            <section className="family-avatar-settings">
+              <button
+                type="button"
+                className="family-avatar-toggle"
+                onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
+              >
+                <Image size={18} />
+                Изменить аватарку
+                <span>{avatarMenuOpen ? '▲' : '▼'}</span>
+              </button>
 
-    {savingAvatar && (
-      <span className="family-saving-avatar">
-        <LoaderCircle className="family-spinner" size={16} />
-        Сохраняем...
-      </span>
-    )}
-  </section>
-)}
+              {avatarMenuOpen && (
+                <AvatarPicker
+                  value={selectedAvatar}
+                  onChange={(id) => {
+                    changeAvatar(id)
+                    setAvatarMenuOpen(false)
+                  }}
+                />
+              )}
 
-{group.role === 'admin' && (
+              {savingAvatar && (
+                <span className="family-saving-avatar">
+                  <LoaderCircle className="family-spinner" size={16} />
+                  Сохраняем...
+                </span>
+              )}
+            </section>
+          )}
+
+          {group.role === 'admin' && (
             <section className="family-name-settings">
               {editingName ? (
                 <div className="family-name-editor">
