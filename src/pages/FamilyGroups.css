@@ -820,3 +820,38 @@
   }
 }
 
+/* CUSTOM FAMILY AVATAR */
+
+.family-custom-avatar {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.family-custom-avatar input {
+  display: none;
+}
+
+.family-custom-avatar img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.family-group-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.family-group-icon:has(.family-group-avatar-image) {
+  overflow: hidden;
+  padding: 0;
+}
+
+.family-custom-avatar:hover {
+  border-color: var(--accent-color);
+  background: var(--accent-bg);
+  color: var(--accent-color);
+}
