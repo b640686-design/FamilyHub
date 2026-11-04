@@ -49,7 +49,7 @@ const translations = {
     noEvents: 'Пока событий нет.',
     eventsDescription: 'Здесь будут отображаться действия участников семьи.',
 
-        // GEOLOCATION
+    // GEOLOCATION
     myLocation: 'Моя геолокация',
     locationSharing: 'Передача геолокации',
     locationEnabled: 'Геолокация включена',
@@ -199,6 +199,13 @@ const translations = {
     changePassword: 'Изменить пароль',
     deleteAccount: 'Удалить аккаунт',
     logoutConfirm: 'Вы действительно хотите выйти?',
+
+    familyChat: 'Семейный чат',
+    chatDescription: 'Общайтесь со своей семьёй',
+    messagePlaceholder: 'Напишите сообщение...',
+    sendMessage: 'Отправить',
+    noMessages: 'Пока сообщений нет',
+    deleteMessage: 'Удалить сообщение',
   },
 
   en: {
@@ -225,6 +232,13 @@ const translations = {
     add: 'Add',
     loading: 'Loading...',
 
+    familyChat: 'Family Chat',
+    chatDescription: 'Chat with your family',
+    messagePlaceholder: 'Write a message...',
+    sendMessage: 'Send',
+    noMessages: 'No messages yet',
+    deleteMessage: 'Delete message',
+
     preferences: 'PREFERENCES',
     settingsDescription: 'Customize FamilyHub your way',
     appearance: 'Appearance',
@@ -246,7 +260,7 @@ const translations = {
     noEvents: 'No events yet.',
     eventsDescription: 'Family members’ activities will appear here.',
 
-        // GEOLOCATION
+    // GEOLOCATION
     myLocation: 'My location',
     locationSharing: 'Location sharing',
     locationEnabled: 'Location enabled',
@@ -422,6 +436,13 @@ const translations = {
     add: 'Qo‘shish',
     loading: 'Yuklanmoqda...',
 
+    familyChat: 'Oilaviy chat',
+    chatDescription: 'Oilangiz bilan suhbatlashing',
+    messagePlaceholder: 'Xabar yozing...',
+    sendMessage: 'Yuborish',
+    noMessages: 'Hozircha xabarlar yo‘q',
+    deleteMessage: 'Xabarni o‘chirish',
+
     preferences: 'SOZLAMALAR',
     settingsDescription: 'FamilyHub ilovasini o‘zingizga moslang',
     appearance: 'Tashqi ko‘rinish',
@@ -443,7 +464,7 @@ const translations = {
     noEvents: 'Hozircha voqealar yo‘q.',
     eventsDescription: 'Bu yerda oila a’zolarining faoliyati ko‘rsatiladi.',
 
-        // GEOLOCATION
+    // GEOLOCATION
     myLocation: 'Mening joylashuvim',
     locationSharing: 'Joylashuvni ulashish',
     locationEnabled: 'Joylashuv yoqilgan',

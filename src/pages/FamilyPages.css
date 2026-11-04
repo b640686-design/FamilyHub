@@ -992,3 +992,446 @@
     min-height: 400px;
   }
 }
+
+
+
+/* ================================
+   FAMILY CHAT
+================================ */
+
+.family-chat-card {
+  width: 100%;
+  height: min(680px, calc(100vh - 230px));
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.04);
+}
+
+.family-chat-top {
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.family-chat-top-icon {
+  width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent-color);
+  background: var(--accent-bg);
+  border-radius: 12px;
+}
+
+.family-chat-top h2 {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.family-chat-top p {
+  color: var(--muted-color);
+  font-size: 11px;
+  margin: 3px 0 0;
+}
+
+.family-chat-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  color: var(--muted-color);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.family-chat-live span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 7px rgba(34, 197, 94, 0.5);
+}
+
+/* Сообщения */
+
+.family-chat-messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.family-chat-date {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0 6px;
+}
+
+.family-chat-date span {
+  padding: 4px 10px;
+  color: var(--muted-color);
+  background: var(--accent-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.family-chat-message {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  max-width: 78%;
+  margin: 0;
+}
+
+.family-chat-message + .family-chat-message {
+  margin-top: 2px;
+}
+
+.family-chat-message.own {
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.family-chat-avatar {
+  width: 29px;
+  height: 29px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  color: white;
+  background: var(--accent-color);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.family-chat-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.family-chat-message-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.family-chat-sender {
+  padding-left: 7px;
+  color: var(--accent-color);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.family-chat-bubble {
+  min-width: 65px;
+  padding: 6px 10px 4px;
+  color: var(--text-color);
+  background: var(--accent-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 13px 13px 13px 4px;
+}
+
+.family-chat-message.own .family-chat-bubble {
+  color: white;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  border-radius: 13px 13px 4px 13px;
+}
+
+.family-chat-bubble p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.family-chat-message-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 7px;
+  margin-top: 3px;
+}
+
+.family-chat-message-meta time {
+  color: var(--muted-color);
+  font-size: 9px;
+}
+
+.family-chat-message.own .family-chat-message-meta time {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.family-chat-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  color: var(--muted-color);
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.family-chat-message.own .family-chat-delete {
+  color: white;
+}
+
+.family-chat-delete:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Поле ввода */
+
+.family-chat-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 10px 13px 5px;
+  border-top: 1px solid var(--border-color);
+}
+
+.family-chat-form textarea {
+  flex: 1;
+  min-width: 0;
+  min-height: 40px;
+  max-height: 110px;
+  resize: vertical;
+  padding: 10px 13px;
+  color: var(--text-color);
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  outline: none;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.family-chat-form textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.family-chat-form textarea::placeholder {
+  color: var(--muted-color);
+}
+
+.family-chat-send {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.family-chat-send:hover:not(:disabled) {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.family-chat-send:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.family-chat-hint {
+  padding: 0 15px 8px;
+  color: var(--muted-color);
+  font-size: 9px;
+}
+
+/* Пустой чат и загрузка */
+
+.family-chat-empty,
+.family-chat-state {
+  flex: 1;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.family-chat-empty-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: var(--accent-color);
+  background: var(--accent-bg);
+  border-radius: 17px;
+}
+
+.family-chat-empty h3,
+.family-chat-state h3 {
+  color: var(--text-color);
+  font-size: 15px;
+  margin: 0;
+}
+
+.family-chat-empty p,
+.family-chat-state p {
+  max-width: 330px;
+  color: var(--muted-color);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 7px 0 15px;
+}
+
+.family-chat-state > .family-primary-btn {
+  margin-top: 7px;
+}
+
+.family-chat-spinner {
+  color: var(--accent-color);
+  animation: familyChatSpin 1s linear infinite;
+}
+
+@keyframes familyChatSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ошибки */
+
+.family-chat-error {
+  margin: 0 13px 8px;
+  padding: 9px 11px;
+  color: #e45b67;
+  background: rgba(228, 91, 103, 0.08);
+  border: 1px solid rgba(228, 91, 103, 0.2);
+  border-radius: 9px;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+/* Телефоны */
+
+@media (max-width: 600px) {
+  .family-chat-card {
+    height: calc(100dvh - 175px);
+    min-height: 390px;
+    border-radius: 14px;
+  }
+
+  .family-chat-top {
+    min-height: 59px;
+    padding: 9px 11px;
+    gap: 9px;
+  }
+
+  .family-chat-top-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .family-chat-messages {
+    padding: 6px 8px;
+    gap: 0;
+  }
+
+  .family-chat-message {
+    max-width: 90%;
+    gap: 6px;
+  }
+
+  .family-chat-message + .family-chat-message {
+    margin-top: 2px;
+  }
+
+  .family-chat-avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
+  }
+
+  .family-chat-bubble {
+    padding: 6px 9px 4px;
+  }
+
+  .family-chat-bubble p {
+    font-size: 12px;
+  }
+
+  .family-chat-form {
+    padding: 9px 9px 5px;
+    gap: 6px;
+  }
+
+  .family-chat-form textarea {
+    min-height: 39px;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .family-chat-send {
+    width: 39px;
+    height: 39px;
+  }
+
+  .family-chat-hint {
+    padding: 0 10px 7px;
+    font-size: 8px;
+  }
+}
+
+/* Прижимаем свои сообщения к правому краю */
+
+.family-chat-messages > div:has(> .family-chat-message.own) {
+  width: 100%;
+}
+
+.family-chat-message.own {
+  width: fit-content;
+  max-width: 78%;
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+.family-chat-message.own .family-chat-message-content {
+  align-items: flex-end;
+}
+
+.family-chat-message.own .family-chat-sender {
+  text-align: right;
+}
